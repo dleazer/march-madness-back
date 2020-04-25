@@ -26,7 +26,7 @@ def parse_ncaa_tournament_seed(seed):
 	return int(re.sub(r"[A-Za-z]", "", seed))
 
 def date_to_day_num(date, season):
-	conn, sql =sql_connect()
+	conn, sql = sql_connect()
 	
 	dates_q = "SELECT date_start, date_end FROM seasons WHERE season = ?;"
 	dates_filter = [season]
@@ -39,8 +39,16 @@ def date_to_day_num(date, season):
 
 	return day_num
 
+def get_ncaa_tournament_seeds(season):
+	conn, sql = sql_connect()
+
+	seeds_q = "SELECT * FROM ncaa_tournament_seeds WHERE season = ?;"
+	seeds_filter = [season]
+
+	return sql.execute(seeds_q, seeds_filter).fetchall()
+
 def predict_game(season, team_a_id, team_b_id, team_a_home, neutral_court, reg_season, conf_tournament, ncaa_tournament, day_num):
-	conn, sql =sql_connect()
+	conn, sql = sql_connect()
 
 	# Get seasons
 	seasons_q = "SELECT DISTINCT season FROM team_average_stats;"
@@ -100,7 +108,7 @@ def predict_game(season, team_a_id, team_b_id, team_a_home, neutral_court, reg_s
 	return model.predict(X).ravel()[0]
 
 def predict_tournament(season):
-	conn, sql =sql_connect()
+	conn, sql = sql_connect()
 
 	# First see if this tournament prediction already exists in the database
 	predictions_q = "SELECT team_a, team_b, team_a_win_prob FROM ncaa_tournament_predictions WHERE season = ?;"
