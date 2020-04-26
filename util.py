@@ -47,6 +47,14 @@ def get_ncaa_tournament_seeds(season):
 
 	return sql.execute(seeds_q, seeds_filter).fetchall()
 
+def get_ncaa_tournament_slots(season):
+	conn, sql = sql_connect()
+
+	slots_q = "SELECT * FROM ncaa_tournament_slots WHERE season = ?;"
+	slots_filter = [season]
+
+	return sql.execute(slots_q, slots_filter).fetchall()
+
 def predict_game(season, team_a_id, team_b_id, team_a_home, neutral_court, reg_season, conf_tournament, ncaa_tournament, day_num):
 	conn, sql = sql_connect()
 
