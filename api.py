@@ -16,6 +16,14 @@ parser.add_argument("conference_tournament")
 parser.add_argument("ncaa_tournament")
 parser.add_argument("date")
 
+class Teams(Resource):
+	def get(self):
+		response = {
+			"teams": util.get_teams()
+		}
+
+		return response
+
 class NcaaTournamentSeeds(Resource):
 	def get(self, season):
 		response = {
@@ -104,6 +112,7 @@ class PredictTournament(Resource):
 		return response
 
 # Endpoints
+api.add_resource(Teams, "/teams")
 api.add_resource(NcaaTournamentSeeds, "/ncaa-tournament-seeds/<season>")
 api.add_resource(NcaaTournamentSlots, "/ncaa-tournament-slots/<season>")
 api.add_resource(PredictGame, "/predict-game")

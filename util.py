@@ -39,6 +39,13 @@ def date_to_day_num(date, season):
 
 	return day_num
 
+def get_teams():
+	conn, sql = sql_connect()
+
+	teams_q = "SELECT * FROM teams;"
+
+	return sql.execute(teams_q).fetchall()
+
 def get_ncaa_tournament_seeds(season):
 	conn, sql = sql_connect()
 

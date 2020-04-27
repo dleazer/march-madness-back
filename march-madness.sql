@@ -12,6 +12,15 @@ CREATE TABLE seasons(
 
 .import data/MSeasons.csv seasons
 
+CREATE TABLE teams(
+	id TEXT NOT NULL,
+	name TEXT NOT NULL,
+	first_d1_season TEXT NOT NULL,
+	last_d1_season TEXT NOT NULL
+);
+
+.import data/MTeams.csv teams
+
 CREATE TABLE team_average_stats(
 	season TEXT NOT NULL,
 	team_id TEXT NOT NULL,
