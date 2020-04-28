@@ -40,6 +40,14 @@ class NcaaTournamentSlots(Resource):
 
 		return response
 
+class NcaaTournamentGames(Resource):
+	def get(self, season):
+		response = {
+			"ncaa_tournament_games": util.get_ncaa_tournament_games(season)
+		}
+
+		return response
+
 class PredictGame(Resource):
 	def post(self):
 		args = parser.parse_args()
@@ -115,6 +123,7 @@ class PredictTournament(Resource):
 api.add_resource(Teams, "/teams")
 api.add_resource(NcaaTournamentSeeds, "/ncaa-tournament-seeds/<season>")
 api.add_resource(NcaaTournamentSlots, "/ncaa-tournament-slots/<season>")
+api.add_resource(NcaaTournamentGames, "/ncaa-tournament-games/<season>")
 api.add_resource(PredictGame, "/predict-game")
 api.add_resource(PredictTournament, "/predict-tournament/<season>")
 

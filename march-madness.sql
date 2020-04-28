@@ -67,6 +67,45 @@ CREATE TABLE ncaa_tournament_seed_round_slots(
 	late_day_num INTEGER NOT NULL
 );
 
+CREATE TABLE ncaa_tournament_games(
+	season TEXT NOT NULL,
+	day_num INTEGER NOT NULL,
+	win_team_id TEXT NOT NULL,
+	win_score INTEGER NOT NULL,
+	lose_team_id TEXT NOT NULL,
+	lose_score INTEGER NOT NULL,
+	win_location TEXT NOT NULL,
+	num_overtimes INTEGER NOT NULL,
+	win_field_goals_made INTEGER NOT NULL,
+	win_field_goals_attempted INTEGER NOT NULL,
+	win_three_pointers_made INTEGER NOT NULL,
+	win_three_pointers_attempted INTEGER NOT NULL,
+	win_free_throws_made INTEGER NOT NULL,
+	win_free_throws_attempted INTEGER NOT NULL,
+	win_rebounds_offensive INTEGER NOT NULL,
+	win_rebounds_defensive INTEGER NOT NULL,
+	win_assists INTEGER NOT NULL,
+	win_turnovers INTEGER NOT NULL,
+	win_steals INTEGER NOT NULL,
+	win_blocks INTEGER NOT NULL,
+	win_personal_fouls INTEGER NOT NULL,
+	lose_field_goals_made INTEGER NOT NULL,
+	lose_field_goals_attempted INTEGER NOT NULL,
+	lose_three_pointers_made INTEGER NOT NULL,
+	lose_three_pointers_attempted INTEGER NOT NULL,
+	lose_free_throws_made INTEGER NOT NULL,
+	lose_free_throws_attempted INTEGER NOT NULL,
+	lose_rebounds_offensive INTEGER NOT NULL,
+	lose_rebounds_defensive INTEGER NOT NULL,
+	lose_assists INTEGER NOT NULL,
+	lose_turnovers INTEGER NOT NULL,
+	lose_steals INTEGER NOT NULL,
+	lose_blocks INTEGER NOT NULL,
+	lose_personal_fouls INTEGER NOT NULL
+);
+
+.import data/MNCAATourneyDetailedResults.csv ncaa_tournament_games
+
 .import data/MNCAATourneySeedRoundSlots.csv ncaa_tournament_seed_round_slots
 
 CREATE TABLE ncaa_tournament_predictions(
