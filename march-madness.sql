@@ -7,6 +7,10 @@ CREATE TABLE seasons(
 	region_x TEXT NOT NULL,
 	region_y TEXT NOT NULL,
 	region_z TEXT NOT NULL,
+	region_1 TEXT NOT NULL,
+	region_2 TEXT NOT NULL,
+	region_3 TEXT NOT NULL,
+	region_4 TEXT NOT NULL,
 	date_end TEXT NOT NULL
 );
 
