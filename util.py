@@ -39,6 +39,21 @@ def date_to_day_num(date, season):
 
 	return day_num
 
+def get_season(season):
+	conn, sql = sql_connect()
+
+	season_q = "SELECT * FROM seasons WHERE season = ?;"
+	season_filter = [season]
+
+	return sql.execute(season_q, season_filter).fetchone()
+
+def get_seasons():
+	conn, sql = sql_connect()
+
+	seasons_q = "SELECT * FROM seasons;"
+
+	return sql.execute(seasons_q).fetchall()
+
 def get_teams():
 	conn, sql = sql_connect()
 
