@@ -138,4 +138,4 @@ api.add_resource(PredictGame, "/predict-game")
 api.add_resource(PredictTournament, "/predict-tournament/<season>")
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	app.run(debug=False)
