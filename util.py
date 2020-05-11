@@ -8,6 +8,9 @@ from random import random
 from datetime import datetime
 from tensorflow.keras.models import load_model
 
+FILE_PATH = os.path.dirname(os.path.realpath(__file__))
+DB_FILE   = os.path.join(FILE_PATH, "march-madness.db")
+
 def dict_factory(cursor, row):
 	d = {}
 
@@ -17,7 +20,7 @@ def dict_factory(cursor, row):
 	return d
 
 def sql_connect():
-	conn             = sqlite3.connect("march-madness.db")
+	conn             = sqlite3.connect(DB_FILE)
 	conn.row_factory = dict_factory
 
 	return conn, conn.cursor()
