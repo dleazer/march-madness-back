@@ -128,14 +128,14 @@ class PredictTournament(Resource):
 		return response
 
 # Endpoints
-api.add_resource(Season, "/season/<season>")
-api.add_resource(Seasons, "/seasons")
-api.add_resource(Teams, "/teams")
-api.add_resource(NcaaTournamentSeeds, "/ncaa-tournament-seeds/<season>")
-api.add_resource(NcaaTournamentSlots, "/ncaa-tournament-slots/<season>")
-api.add_resource(NcaaTournamentGames, "/ncaa-tournament-games/<season>")
-api.add_resource(PredictGame, "/predict-game")
-api.add_resource(PredictTournament, "/predict-tournament/<season>")
+api.add_resource(Season, "/api/season/<season>")
+api.add_resource(Seasons, "/api/seasons")
+api.add_resource(Teams, "/api/teams")
+api.add_resource(NcaaTournamentSeeds, "/api/ncaa-tournament-seeds/<season>")
+api.add_resource(NcaaTournamentSlots, "/api/ncaa-tournament-slots/<season>")
+api.add_resource(NcaaTournamentGames, "/api/ncaa-tournament-games/<season>")
+api.add_resource(PredictGame, "/api/predict-game")
+api.add_resource(PredictTournament, "/api/predict-tournament/<season>")
 
 if __name__ == "__main__":
 	app.run(debug=False)
